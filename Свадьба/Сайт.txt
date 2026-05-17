@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Приглашение на свадьбу | Анна и Дмитрий</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Georgia', 'Times New Roman', serif;
+            background: linear-gradient(135deg, #fff9f0 0%, #fdf0e0 100%);
+            color: #3e2c23;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Hero секция с фото */
+        .hero {
+            text-align: center;
+            margin-bottom: 40px;
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 25px 40px rgba(0,0,0,0.1);
+            background: white;
+        }
+
+        .hero img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            max-height: 550px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin: 30px 0 10px;
+            font-family: 'Georgia', serif;
+            letter-spacing: 2px;
+            color: #b45f3b;
+        }
+
+        .hero .date {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: #6b4e3a;
+        }
+
+        /* Таймер */
+        .timer-box {
+            background: white;
+            border-radius: 35px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        .timer-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #b45f3b;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .timer {
+            display: flex;
+            justify-content: space-around;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .timer-block {
+            background: #fff3e8;
+            padding: 15px;
+            border-radius: 25px;
+            min-width: 85px;
+            text-align: center;
+        }
+
+        .timer-number {
+            font-size: 2.3rem;
+            font-weight: bold;
+            color: #b45f3b;
+            line-height: 1;
+        }
+
+        .timer-label {
+            font-size: 0.85rem;
+            color: #6b4e3a;
+            margin-top: 5px;
+        }
+
+        /* Основной текст */
+        .invite-text {
+            background: white;
+            padding: 35px;
+            border-radius: 35px;
+            margin: 20px 0;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .invite-text p {
+            margin: 18px 0;
+            font-size: 1.1rem;
+        }
+
+        .dresscode {
+            background: #fff7f0;
+            padding: 20px;
+            border-radius: 35px;
+            margin: 20px 0;
+            text-align: center;
+            border: 1px dashed #d4b48c;
+        }
+
+        /* Программа */
+        .program {
+            background: white;
+            padding: 30px;
+            border-radius: 35px;
+            margin: 20px 0;
+        }
+
+        .program h3 {
+            text-align: center;
+            color: #b45f3b;
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+        }
+
+        .program-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 14px 0;
+            border-bottom: 1px dashed #e4d5c6;
+        }
+
+        .program-time {
+            font-weight: bold;
+            color: #b45f3b;
+        }
+
+        /* Карта */
+        .map {
+            background: white;
+            border-radius: 35px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .map iframe {
+            width: 100%;
+            border-radius: 25px;
+            margin-top: 15px;
+            height: 300px;
+        }
+
+        /* Блок про подарки */
+        .gifts {
+            background: white;
+            padding: 30px;
+            border-radius: 35px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .gifts h3 {
+            color: #b45f3b;
+            margin-bottom: 15px;
+            font-size: 1.6rem;
+        }
+
+        .gifts p {
+            margin: 15px 0;
+        }
+
+        .gifts-note {
+            background: #fff3e8;
+            padding: 15px;
+            border-radius: 25px;
+            margin-top: 15px;
+            font-size: 0.95rem;
+        }
+
+        /* Форма RSVP */
+        .rsvp {
+            background: white;
+            padding: 35px;
+            border-radius: 35px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .rsvp h3 {
+            color: #b45f3b;
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+        }
+
+        .rsvp input, .rsvp select, .rsvp textarea, .rsvp button {
+            width: 100%;
+            padding: 14px 18px;
+            margin: 12px 0;
+            border: 1px solid #e0cfc0;
+            border-radius: 60px;
+            font-size: 1rem;
+            font-family: inherit;
+            background: #fefcf9;
+        }
+
+        .rsvp textarea {
+            border-radius: 25px;
+            resize: vertical;
+        }
+
+        .rsvp button {
+            background: #b45f3b;
+            color: white;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .rsvp button:hover {
+            background: #8e4a2d;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 35px;
+            font-size: 0.85rem;
+            color: #9b7b6a;
+        }
+
+        @media (max-width: 550px) {
+            .timer-number { font-size: 1.5rem; }
+            .timer-block { min-width: 65px; }
+            .hero h1 { font-size: 2rem; }
+            .hero .date { font-size: 1.1rem; }
+            .program-item { flex-direction: column; align-items: center; gap: 5px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero секция с фото (ЗАМЕНИТЕ ССЫЛКУ НА ВАШЕ ФОТО) -->
+        <div class="hero">
+            <!-- 
+                ⬇️⬇️⬇️ ВСТАВЬТЕ ВАШУ ФОТОГРАФИЮ ВМЕСТО ЭТОЙ ССЫЛКИ ⬇️⬇️⬇️
+                Например: img src="https://ваш-сайт/ваше-фото.jpg"
+                Или: img src="моефото.jpg" (если файл лежит рядом с html)
+            -->
+            <img src="моефото" alt="Анна и Дмитрий">
+            <h1>АННА & ДМИТРИЙ</h1>
+            <div class="date">приглашают вас на свадьбу</div>
+            <div class="date">19 сентября 2026 · 16:00</div>
+        </div>
+
+        <!-- Таймер до 19.09.2026 -->
+        <div class="timer-box">
+            <div class="timer-title">До нашего торжества осталось</div>
+            <div class="timer" id="timer">
+                <div class="timer-block"><div class="timer-number" id="days">00</div><div class="timer-label">дней</div></div>
+                <div class="timer-block"><div class="timer-number" id="hours">00</div><div class="timer-label">часов</div></div>
+                <div class="timer-block"><div class="timer-number" id="minutes">00</div><div class="timer-label">минут</div></div>
+                <div class="timer-block"><div class="timer-number" id="seconds">00</div><div class="timer-label">секунд</div></div>
+            </div>
+        </div>
+
+        <!-- Пригласительный текст -->
+        <div class="invite-text">
+            <p>Дорогие наши и любимые!</p>
+            <p>В жизни каждого человека наступает момент, когда хочется остановить мгновение, стать самым счастливым и разделить эту радость с самыми близкими людьми.</p>
+            <p>Для нас таким мгновением станет <strong>19 сентября 2026 года</strong> — в этот день мы решим соединить свои судьбы в одну.</p>
+            <p>Будем бесконечно рады видеть вас на нашей свадьбе, чтобы вместе смеяться, танцевать и создавать тёплые воспоминания на всю жизнь!</p>
+        </div>
+
+        <!-- Дресс-код (свободный) -->
+        <div class="dresscode">
+            <p>🎉 <strong>Никаких ограничений в цвете и фасоне!</strong> 🎉</p>
+            <p>Приходите так, как вам удобно и нравится. Главное — чтобы вы чувствовали себя прекрасно и были с нами в этот день.</p>
+        </div>
+
+        <!-- Программа -->
+        <div class="program">
+            <h3>🍷 Программа вечера</h3>
+            <div class="program-item"><span class="program-time">16:00</span><span>Сбор гостей, приветственный фуршет</span></div>
+            <div class="program-item"><span class="program-time">17:00</span><span>Торжественная церемония</span></div>
+            <div class="program-item"><span class="program-time">18:00</span><span>Банкет, тосты, танцы</span></div>
+            <div class="program-item"><span class="program-time">23:00</span><span>Фейерверк и завершение вечера</span></div>
+        </div>
+
+        <!-- Место и карта -->
+        <div class="map">
+            <h3>📍 Где празднуем</h3>
+            <p><strong>Ресторан «Аш Хауз»</strong><br>Рязань, Федеральная трасса М-5 180, строение 21</p>
+            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A9a8b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b&mode=search&text=Рязань%20Федеральная%20трасса%20М-5%20180%20строение%2021&z=17" width="100%" height="300" frameborder="0" allowfullscreen></iframe>
+            <p style="margin-top: 12px;">🚗 Большая парковка на территории ресторана</p>
+        </div>
+
+        <!-- Блок про подарки (аккуратно про деньги, без цветов, памятный подарок) -->
+        <div class="gifts">
+            <h3>🎁 О самом важном</h3>
+            <p>Мы очень трепетно относимся к вашему желанию поздравить нас, и для нас главное — чтобы вы были рядом.</p>
+            <p>Если вы захотите порадовать нас подарком, мы будем благодарны за ваш вклад в <strong>наш семейный бюджет</strong> — это поможет нам воплотить общие мечты (путешествие, дом, будущее).</p>
+            <p>🌸 <strong>Просьба не дарить живые цветы</strong> — в этот день мы хотим избежать лишних хлопот и забот. Вместо цветов мы будем рады получить небольшой памятный подарок, например, <strong>бутылочку вашего любимого алкоголя</strong> — так вы точно попадёте в цель и оставите тёплое воспоминание.</p>
+            <div class="gifts-note">
+                💡 Главное — ваше внимание и присутствие. Остальное — это приятные мелочи.
+            </div>
+        </div>
+
+        <!-- Форма RSVP с выбором напитков -->
+        <div class="rsvp">
+            <h3>✨ Подтвердите присутствие ✨</h3>
+            <p>Пожалуйста, ответьте до <strong>1 августа 2026</strong></p>
+            <form action="https://formspree.io/f/xrgwqzvl" method="POST">
+                <input type="text" name="name" placeholder="Ваше имя и фамилия" required>
+                
+                <select name="attendance" required>
+                    <option value="">— Я приду на свадьбу —</option>
+                    <option value="yes">Конечно, буду! 🥂</option>
+                    <option value="plus">Буду с гостем/гостьей (+1)</option>
+                    <option value="no">Увы, не смогу, но буду с вами мысленно</option>
+                </select>
+                
+                <input type="text" name="plusone_name" placeholder="Если с +1, укажите имя сопровождающего">
+                
+                <p style="text-align: left; margin: 10px 0 0 0; font-weight: bold;">🥤 Что будете пить (выберите один или несколько вариантов):</p>
+                <select name="drinks" multiple size="4" style="border-radius: 25px; height: auto;">
+                    <option value="самогон">🍇 Домашний самогон (фирменный)</option>
+                    <option value="водка">🥃 Водка</option>
+                    <option value="шампанское">🥂 Шампанское</option>
+                    <option value="вино">🍷 Вино (красное/белое)</option>
+                </select>
+                <p style="font-size: 0.75rem; text-align: left;">* Зажмите Ctrl (или Cmd на Mac), чтобы выбрать несколько напитков</p>
+                
+                <textarea name="comment" rows="2" placeholder="Ваши пожелания, аллергии, особенности питания или просто тёплые слова"></textarea>
+                
+                <button type="submit">Отправить ответ</button>
+            </form>
+            <p style="font-size: 0.8rem; margin-top: 15px;">После отправки вы увидите сообщение о получении. Спасибо, что вы с нами!</p>
+        </div>
+
+        <div class="footer">
+            ❤️ С нетерпением ждём встречи,<br>
+            Анна и Дмитрий<br>
+            📞 Организатор: +7 999 888-77-66 (Елена)
+        </div>
+    </div>
+
+    <script>
+        // Таймер до 19 сентября 2026 года
+        function updateTimer() {
+            const weddingDate = new Date("September 19, 2026 16:00:00").getTime();
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            if (distance < 0) {
+                document.getElementById("timer").innerHTML = "<div class='timer-block'><div class='timer-number'>Свадьба наступила!</div></div>";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (86400000)) / (3600000));
+            const minutes = Math.floor((distance % 3600000) / 60000);
+            const seconds = Math.floor((distance % 60000) / 1000);
+
+            document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+        }
+
+        updateTimer();
+        setInterval(updateTimer, 1000);
+    </script>
+</body>
+</html>
