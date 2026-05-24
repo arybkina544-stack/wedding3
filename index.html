@@ -377,5 +377,23 @@
         updateTimer();
         setInterval(updateTimer, 1000);
     </script>
+    <script>
+    function resizeIframe(obj) {
+        obj.style.height = 'auto'; // Сбрасываем высоту
+        // Устанавливаем новую высоту, равную высоте содержимого + небольшой запас
+        setTimeout(function() {
+            var newHeight = obj.contentWindow.document.body.scrollHeight;
+            obj.style.height = newHeight + 20 + 'px';
+        }, 100); // Небольшая задержка для полной загрузки контента
+    }
+
+    // Для отслеживания изменения размера окна
+    window.addEventListener('resize', function() {
+        var iframe = document.getElementById('google-form-iframe');
+        if (iframe) {
+            resizeIframe(iframe);
+        }
+    });
+</script>
 </body>
 </html>
